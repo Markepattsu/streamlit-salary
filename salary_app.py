@@ -156,17 +156,35 @@ def user_input_features():
     #     'What_is_your_gender': [gender in selected_gender for gender in genders]
     # }
 
-    data = {
-        'New Age Range': [age_range == selected_age_range for age_range in age_ranges],
-        'What industry do you work in?': [industry in selected_industries for industry in industries],
-        'Continent': [continent in selected_continents for continent in continents],
-        'How many years of professional work experience do you have overall?': [exp == selected_experience_overall for exp in experience_overall],
-        'How many years of professional work experience do you have in your field?': [exp == selected_experience_field for exp in experience_field],
-        'What is your highest level of education completed?': [degree == selected_degree for degree in degrees],
-        'What is your gender?': [gender == selected_gender for gender in genders]
-    }
+    # data = {
+    #     'New Age Range': [age_range == selected_age_range for age_range in age_ranges],
+    #     'What industry do you work in?': [industry in selected_industries for industry in industries],
+    #     'Continent': [continent in selected_continents for continent in continents],
+    #     'How many years of professional work experience do you have overall?': [exp == selected_experience_overall for exp in experience_overall],
+    #     'How many years of professional work experience do you have in your field?': [exp == selected_experience_field for exp in experience_field],
+    #     'What is your highest level of education completed?': [degree == selected_degree for degree in degrees],
+    #     'What is your gender?': [gender == selected_gender for gender in genders]
+    # }
 
-    features = pd.DataFrame(data)
+    data = {}
+    data['New Age Range'] = selected_age_range
+    data['What industry do you work in?'] = selected_industries
+    data['Continent'] = selected_continents
+    data['How many years of professional work experience do you have overall?'] = selected_experience_overall
+    data['How many years of professional work experience do you have in your field?'] = selected_experience_field
+    data['What is your highest level of education completed?'] = selected_degree
+    data['What is your gender?'] = selected_gender
+
+    # Perform one-hot encoding
+    encoded_data = {}
+    for key, value in data.items():
+        if isinstance(value, list):
+            for item in value:
+                encoded_data[f'{key}__{item}'] = int(item in value)
+        else:
+            encoded_data[key] = value
+
+    features = pd.DataFrame(encoded_data, index=[0])
     return features
 
 df = user_input_features()
@@ -174,15 +192,15 @@ df = user_input_features()
 
 
 
-encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
+# encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
 
-for col in encode:
-    if col in df.columns:
-        dummy = pd.get_dummies(df[col], prefix=col)
-        df = pd.concat([df, dummy], axis=1)
-        del df[col]
-    else:
-        print(f"Column '{col}' not found in the DataFrame. Skipping...")
+# for col in encode:
+#     if col in df.columns:
+#         dummy = pd.get_dummies(df[col], prefix=col)
+#         df = pd.concat([df, dummy], axis=1)
+#         del df[col]
+#     else:
+#         print(f"Column '{col}' not found in the DataFrame. Skipping...")
 
 df = df.iloc[:1]
 
