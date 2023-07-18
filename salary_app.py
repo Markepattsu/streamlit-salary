@@ -166,23 +166,37 @@ def user_input_features():
     #     'What is your gender?': [gender == selected_gender for gender in genders]
     # }
 
-    data = {}
-    data['New Age Range'] = [selected_age_range]
-    data['What industry do you work in?'] = [selected_industries]
-    data['Continent'] = [selected_continents]
-    data['How many years of professional work experience do you have overall?'] = [selected_experience_overall]
-    data['How many years of professional work experience do you have in your field?'] = [selected_experience_field]
-    data['What is your highest level of education completed?'] = [selected_degree]
-    data['What is your gender?'] = [selected_gender]
+    # data = {}
+    # data['New Age Range'] = [selected_age_range]
+    # data['What industry do you work in?'] = [selected_industries]
+    # data['Continent'] = [selected_continents]
+    # data['How many years of professional work experience do you have overall?'] = [selected_experience_overall]
+    # data['How many years of professional work experience do you have in your field?'] = [selected_experience_field]
+    # data['What is your highest level of education completed?'] = [selected_degree]
+    # data['What is your gender?'] = [selected_gender]
 
-    features = pd.DataFrame(data)
-    return features
+    data = {
+        'New Age Range': [selected_age_range],
+        'What industry do you work in?': [selected_industries],
+        'Continent': [selected_continents],
+        'How many years of professional work experience do you have overall?': [selected_experience_overall],
+        'How many years of professional work experience do you have in your field?': [selected_experience_field],
+        'What is your highest level of education completed?': [selected_degree],
+        'What is your gender?': [selected_gender]
+    }
+    df = pd.DataFrame(data)
+    return df
+
+def one_hot_encode(df):
+    # Use pandas get_dummies to one-hot encode the data
+    encoded_df = pd.get_dummies(df)
+    return encoded_df
 
 df = user_input_features()
 
-features_df = pd.get_dummies(df, columns=['New Age Range', 'What industry do you work in?','Continent','How many years of professional work experience do you have overall?',
-                                         'How many years of professional work experience do you have in your field?','What is your highest level of education completed?','What is your gender?'])
-    
+encoded_df = one_hot_encode(df)
+
+
 #     data = {}
 #     data['New Age Range'] = selected_age_range
 #     data['What industry do you work in?'] = selected_industries
@@ -218,13 +232,14 @@ features_df = pd.get_dummies(df, columns=['New Age Range', 'What industry do you
 df = df.iloc[:1]
 
 
+
 # Displays the user input features
 
 st.subheader('User Input Features')
 
 model = pickle.load(open('model_lgbm.pkl','rb'))
 
-predictions = model.predict(features_df)
+predictions = model.predict(encoded_df)
 # Display the predictions
 st.subheader('Predicted')
 st.write(predictions)
