@@ -4,4 +4,5 @@ base58==2.1.1
 matplotlib==3.5.1
 numpy==1.21.2
 scikit-learn==1.0.1
-lightgbm
+lightgbm==3.2.1
+
