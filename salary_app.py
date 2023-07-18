@@ -183,15 +183,10 @@ st.subheader('User Input Features')
 model = pickle.load(open('model_lgbm.pkl','rb'))
 
 predictions = model.predict(df)
-prediction_proba = model.predict_proba(df)
 # Display the predictions
 st.subheader('Predicted')
 st.write(predictions)
-st.subheader('Prediction Probability')
-st.write(prediction_proba)\
 
 
 
-st.subheader('Prediction Probability')
-st.write(prediction_proba) 
 
