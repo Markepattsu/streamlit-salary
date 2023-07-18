@@ -90,7 +90,7 @@ def user_input_features():
     ]
     selected_experience_field = st.sidebar.selectbox('Professional Work Experience in the Field', experience_field)
     
-        degrees = [
+    degrees = [
         'College degree',
         'High School',
         'Master\'s degree',
