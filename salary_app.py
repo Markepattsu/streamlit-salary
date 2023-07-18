@@ -182,20 +182,13 @@ st.subheader('User Input Features')
 
 model = pickle.load(open('model_lgbm.pkl','rb'))
 
-if os.path.exists(model_path):
-    # Load the model
-    model = joblib.load(model_path)
-    # Make predictions using the loaded model
-    predictions = model.predict(df)
-    prediction_proba = model.predict_proba(df)
-    # Display the predictions
-    st.subheader('Predicted')
-    st.write(predictions)
-    st.subheader('Prediction Probability')
-    st.write(prediction_proba)
-else:
-    st.error('Model file not found. Please verify the file path.')
-
+predictions = model.predict(df)
+prediction_proba = model.predict_proba(df)
+# Display the predictions
+st.subheader('Predicted')
+st.write(predictions)
+st.subheader('Prediction Probability')
+st.write(prediction_proba)\
 
 
 
