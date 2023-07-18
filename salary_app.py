@@ -129,7 +129,7 @@ def user_input_features():
 
 
     for gender in genders:
-        data[f'What_is_your_gender__{gender}'] = gender in selected_genders
+        data[f'What_is_your_gender__{gender}'] = gender in selected_gender
 
 
     features = pd.DataFrame(data, index=[0])
