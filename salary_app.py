@@ -164,7 +164,9 @@ df = df.iloc[:1]
 
 st.subheader('User Input Features')
 
-model_path = 'C:/Users/tanak/OneDrive/Desktop/Desk/Work/Yr 2/Sem 1/MLDP/Proj/model_lgbm.pkl'
+file_path = os.path.join('Proj', 'model_lgbm.pkl')
+
+model = joblib.load(file_path)
 
 if os.path.exists(model_path):
     # Load the model
