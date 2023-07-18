@@ -185,8 +185,8 @@ def user_input_features():
     #     'What_is_your_gender__': [selected_gender]
     # }
     
-    df = pd.DataFrame(data)
-    return df
+    features = pd.DataFrame(data, index=[0])
+    return features
 
 # def one_hot_encode(df):
 #     # Use pandas get_dummies to one-hot encode the data
