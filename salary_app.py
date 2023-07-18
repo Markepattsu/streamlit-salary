@@ -21,7 +21,7 @@ st.sidebar.header('User Input Features')
 
 def user_input_features():
 
-    # data = {}
+    data = {}
     
     age_ranges = ['Under 18', '18-34', '35-54', '55 or over']
     selected_age_range = st.sidebar.selectbox('Age Range', age_ranges)
@@ -109,13 +109,13 @@ def user_input_features():
     ]
     selected_gender = st.sidebar.radio('Gender', genders)
 
-    data = {'New_Age_Range': age_ranges,
-           'What_industry_do_you_work_in': industries,
-           'Continent': continents,
-           'How_many_years_of_professional_work_experience_do_you_have_overall': experience_overall,
-           'How_many_years_of_professional_work_experience_do_you_have_in_your_field': experience_field,
-           'What_is_your_highest_level_of_education_completed': degrees,
-           'What_is_your_gender': genders}
+    # data = {'New_Age_Range': age_ranges,
+    #        'What_industry_do_you_work_in': industries,
+    #        'Continent': continents,
+    #        'How_many_years_of_professional_work_experience_do_you_have_overall': experience_overall,
+    #        'How_many_years_of_professional_work_experience_do_you_have_in_your_field': experience_field,
+    #        'What_is_your_highest_level_of_education_completed': degrees,
+    #        'What_is_your_gender': genders}
 
     # data['Age Range'] = selected_age_range
     # data['Industries'] = selected_industries
@@ -125,26 +125,26 @@ def user_input_features():
     # data['Highest Level of Education Completed'] = selected_degree
     # data['Gender'] = selected_gender
                                           
-    # for age_range in age_ranges:
-    #     data[f'New_Age_Range_{age_range}'] = age_range in selected_age_range
+    for age_range in age_ranges:
+        data[f'New_Age_Range_{age_range}'] = age_range in selected_age_range
 
-    # for industry in industries:
-    #     data[f'What_industry_do_you_work_in__{industry}'] = industry in selected_industries
+    for industry in industries:
+        data[f'What_industry_do_you_work_in__{industry}'] = industry in selected_industries
 
-    # for continent in continents:
-    #     data[f'Continent_{continent}'] = continent in selected_continents
+    for continent in continents:
+        data[f'Continent_{continent}'] = continent in selected_continents
 
-    # for exp in experience_overall:
-    #     data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp in selected_experience_overall
+    for exp in experience_overall:
+        data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp in selected_experience_overall
     
-    # for exp in experience_field:
-    #     data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp in selected_experience_field
+    for exp in experience_field:
+        data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp in selected_experience_field
 
-    # for degree in degrees:
-    #     data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degree
+    for degree in degrees:
+        data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degree
 
-    # for gender in genders:
-    #     data[f'What_is_your_gender__{gender}'] = gender in selected_gender
+    for gender in genders:
+        data[f'What_is_your_gender__{gender}'] = gender in selected_gender
 
     # data = {
     #     'New_Age_Range': [age_range == selected_age_range for age_range in age_ranges],
@@ -165,15 +165,15 @@ df = user_input_features()
 
 
 
-encode = ['Age Range', 'Industries', 'Continents', 'Overall Professional Work Experience', 'Professional Work Experience in the Field', 'Highest Level of Education Completed', 'Gender']
+# encode = ['Age Range', 'Industries', 'Continents', 'Overall Professional Work Experience', 'Professional Work Experience in the Field', 'Highest Level of Education Completed', 'Gender']
 
-for col in encode:
-    if col in df.columns:
-        dummy = pd.get_dummies(df[col], prefix=col)
-        df = pd.concat([df, dummy], axis=1)
-        del df[col]
-    else:
-        print(f"Column '{col}' not found in the DataFrame. Skipping...")
+# for col in encode:
+#     if col in df.columns:
+#         dummy = pd.get_dummies(df[col], prefix=col)
+#         df = pd.concat([df, dummy], axis=1)
+#         del df[col]
+#     else:
+#         print(f"Column '{col}' not found in the DataFrame. Skipping...")
 
 df = df.iloc[:1]
 
