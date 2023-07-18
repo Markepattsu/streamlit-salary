@@ -21,7 +21,7 @@ st.sidebar.header('User Input Features')
 
 def user_input_features():
 
-    # data = {}
+    data = {}
     
     age_ranges = ['Under 18', '18-34', '35-54', '55 or over']
     selected_age_range = st.sidebar.selectbox('Age Range', age_ranges)
