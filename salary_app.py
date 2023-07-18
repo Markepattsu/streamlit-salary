@@ -176,28 +176,27 @@ def user_input_features():
     data['What is your gender?'] = selected_gender
 
     # Perform one-hot encoding
-    encoded_data = {}
-    for key, value in data.items():
-        if isinstance(value, list):
-            for item in value:
-                encoded_data[f'{key}__{item}'] = int(item in value)
-        else:
-            encoded_data[key] = value
+    # encoded_data = {}
+    # for key, value in data.items():
+    #     if isinstance(value, list):
+    #         for item in value:
+    #             encoded_data[f'{key}__{item}'] = int(item in value)
+    #     else:
+    #         encoded_data[key] = value
 
     features = pd.DataFrame(encoded_data, index=[0])
     return features
 
 df = user_input_features()
 
-# encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
 
-# for col in encode:
-#     if col in df.columns:
-#         dummy = pd.get_dummies(df[col], prefix=col)
-#         df = pd.concat([df, dummy], axis=1)
-#         del df[col]
-#     else:
-#         print(f"Column '{col}' not found in the DataFrame. Skipping...")
+
+encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
+
+for col in encode:
+    dummy = pd.get_dummies(df[col], prefix=col)
+    df = pd.concat([df, dummy], axis=1)
+    del df[col]
 
 df = df.iloc[:1]
 
