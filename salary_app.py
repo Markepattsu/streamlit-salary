@@ -124,7 +124,8 @@ def user_input_features():
         data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp == selected_experience_field
 
     for degree in degrees:
-        data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degrees
+        data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degree
+
 
 
     for gender in genders:
@@ -133,8 +134,6 @@ def user_input_features():
 
     features = pd.DataFrame(data, index=[0])
     return features
-
-    input_df = user_input_features()
 
 df = user_input_features()
 
