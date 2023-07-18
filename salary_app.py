@@ -125,26 +125,26 @@ def user_input_features():
     # data['Highest Level of Education Completed'] = selected_degree
     # data['Gender'] = selected_gender
                                           
-    # for age_range in age_ranges:
-    #     data[f'New_Age_Range_{age_range}'] = age_range in selected_age_range
+    for age_range in age_ranges:
+        data[f'New_Age_Range_{age_range}'] = age_range in selected_age_range
 
-    # for industry in industries:
-    #     data[f'What_industry_do_you_work_in__{industry}'] = industry in selected_industries
+    for industry in industries:
+        data[f'What_industry_do_you_work_in__{industry}'] = industry in selected_industries
 
-    # for continent in continents:
-    #     data[f'Continent_{continent}'] = continent in selected_continents
+    for continent in continents:
+        data[f'Continent_{continent}'] = continent in selected_continents
 
-    # for exp in experience_overall:
-    #     data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp in selected_experience_overall
+    for exp in experience_overall:
+        data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp in selected_experience_overall
     
-    # for exp in experience_field:
-    #     data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp in selected_experience_field
+    for exp in experience_field:
+        data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp in selected_experience_field
 
-    # for degree in degrees:
-    #     data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degree
+    for degree in degrees:
+        data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degree
 
-    # for gender in genders:
-    #     data[f'What_is_your_gender__{gender}'] = gender in selected_gender
+    for gender in genders:
+        data[f'What_is_your_gender__{gender}'] = gender in selected_gender
 
     # data = {
     #     'New_Age_Range': [age_range == selected_age_range for age_range in age_ranges],
@@ -175,26 +175,27 @@ def user_input_features():
     # data['What is your highest level of education completed?'] = [selected_degree]
     # data['What is your gender?'] = [selected_gender]
 
-    data = {
-        'New_Age_Range_': [selected_age_range],
-        'What_industry_do_you_work_in__': [selected_industries],
-        'Continent_': [selected_continents],
-        'How_many_years_of_professional_work_experience_do_you_have_overall__': [selected_experience_overall],
-        'How_many_years_of_professional_work_experience_do_you_have_in_your_field__': [selected_experience_field],
-        'What_is_your_highest_level_of_education_completed__': [selected_degree],
-        'What_is_your_gender__': [selected_gender]
-    }
+    # data = {
+    #     'New_Age_Range_': [selected_age_range],
+    #     'What_industry_do_you_work_in__': [selected_industries],
+    #     'Continent_': [selected_continents],
+    #     'How_many_years_of_professional_work_experience_do_you_have_overall__': [selected_experience_overall],
+    #     'How_many_years_of_professional_work_experience_do_you_have_in_your_field__': [selected_experience_field],
+    #     'What_is_your_highest_level_of_education_completed__': [selected_degree],
+    #     'What_is_your_gender__': [selected_gender]
+    # }
+    
     df = pd.DataFrame(data)
     return df
 
-def one_hot_encode(df):
-    # Use pandas get_dummies to one-hot encode the data
-    encoded_df = pd.get_dummies(df)
-    return encoded_df
+# def one_hot_encode(df):
+#     # Use pandas get_dummies to one-hot encode the data
+#     encoded_df = pd.get_dummies(df)
+#     return encoded_df
 
 df = user_input_features()
 
-encoded_df = one_hot_encode(df)
+# encoded_df = one_hot_encode(df)
 
 
 #     data = {}
