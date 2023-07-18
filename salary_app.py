@@ -164,13 +164,15 @@ df = df.iloc[:1]
 
 st.subheader('User Input Features')
 
-file_path = os.path.join("C:", "Users", "tanak", "OneDrive", "Desktop", "Desk", "Work", "Yr 2", "Sem 1", "MLDP", "Proj", "model_lgbm.pkl")
+# file_path = os.path.join("C:", "Users", "tanak", "OneDrive", "Desktop", "Desk", "Work", "Yr 2", "Sem 1", "MLDP", "Proj", "model_lgbm.pkl")
 
-if os.path.exists(file_path):
-    model = joblib.load(file_path)
-    st.success("Model loaded successfully!")
-else:
-    st.error("Model file not found. Please verify the file path.")
+# if os.path.exists(file_path):
+#     model = joblib.load(file_path)
+#     st.success("Model loaded successfully!")
+# else:
+#     st.error("Model file not found. Please verify the file path.")
+
+load_clf = pickle.load(open('model_lgbm.pkl', 'rb'))
 
 
 
