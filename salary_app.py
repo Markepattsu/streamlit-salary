@@ -189,9 +189,6 @@ def user_input_features():
 
 df = user_input_features()
 
-df = df.rename(columns=dict(zip(df.columns, model_columns)))
-
-
 # encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
 
 # for col in encode:
