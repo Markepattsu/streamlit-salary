@@ -127,8 +127,6 @@ def user_input_features():
     for degree in degrees:
         data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degree
 
-
-
     for gender in genders:
         data[f'What_is_your_gender__{gender}'] = gender in selected_gender
 
@@ -139,12 +137,6 @@ def user_input_features():
 df = user_input_features()
 
 
-# encode = ['Age Range', 'Industries','Continents','Overall Professional Work Experience','Professional Work Experience in the Field','Highest Level of Education Completed','Gender']
-
-# for col in encode:
-#     dummy = pd.get_dummies(df[col], prefix=col)
-#     df = pd.concat([df,dummy], axis=1)
-#     del df[col]
 
 
 encode = ['Age Range', 'Industries', 'Continents', 'Overall Professional Work Experience', 'Professional Work Experience in the Field', 'Highest Level of Education Completed', 'Gender']
@@ -156,7 +148,6 @@ for col in encode:
         del df[col]
     else:
         print(f"Column '{col}' not found in the DataFrame. Skipping...")
-# select only the first row (the user input data)
 
 df = df.iloc[:1]
 
@@ -164,21 +155,6 @@ df = df.iloc[:1]
 # Displays the user input features
 
 st.subheader('User Input Features')
-
-# file_path = os.path.join("C:", "Users", "tanak", "OneDrive", "Desktop", "Desk", "Work", "Yr 2", "Sem 1", "MLDP", "Proj", "model_lgbm.pkl")
-
-# if os.path.exists(file_path):
-#     model = joblib.load(file_path)
-#     st.success("Model loaded successfully!")
-# else:
-#     st.error("Model file not found. Please verify the file path.")
-
-# model_path = 'model_lgbm.pkl'
-# with open(model_path, 'rb') as file:
-#     model = pickle.load(file)
-
-
-#model = joblib.load('C:/Users/tanak/OneDrive/Desktop/Desk/Work/Yr 2/Sem 1/MLDP/Proj/model_lgbm.pkl')
 
 model = pickle.load(open('model_lgbm.pkl','rb'))
 
