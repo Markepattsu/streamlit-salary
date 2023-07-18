@@ -174,7 +174,7 @@ else:
 
 
 
-model = joblib.load('C:/Users/tanak/OneDrive/Desktop/Desk/Work/Yr 2/Sem 1/MLDP/Proj/model_lgbm.pkl')
+#model = joblib.load('C:/Users/tanak/OneDrive/Desktop/Desk/Work/Yr 2/Sem 1/MLDP/Proj/model_lgbm.pkl')
 
 
 if os.path.exists(model_path):
