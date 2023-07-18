@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import pickle
 import joblib
-import lightgbm as lgb
 from sklearn.datasets import make_regression
 import os
 
