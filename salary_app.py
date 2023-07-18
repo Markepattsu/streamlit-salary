@@ -180,12 +180,8 @@ def user_input_features():
 
 df = user_input_features()
 
-encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
-
-for col in encode:
-    dummy = pd.get_dummies(df[col], prefix=col)
-    df = pd.concat([df, dummy], axis=1)
-    del df[col]
+features_df = pd.get_dummies(df, columns=['New Age Range', 'What industry do you work in?','Continent','How many years of professional work experience do you have overall?',
+                                         'How many years of professional work experience do you have in your field?','What is your highest level of education completed?','What is your gender?'])
     
 #     data = {}
 #     data['New Age Range'] = selected_age_range
@@ -228,7 +224,7 @@ st.subheader('User Input Features')
 
 model = pickle.load(open('model_lgbm.pkl','rb'))
 
-predictions = model.predict(df)
+predictions = model.predict(features_df)
 # Display the predictions
 st.subheader('Predicted')
 st.write(predictions)
