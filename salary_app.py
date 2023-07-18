@@ -167,29 +167,18 @@ def user_input_features():
     # }
 
     data = {}
-    data['New Age Range'] = selected_age_range
-    data['What industry do you work in?'] = selected_industries
-    data['Continent'] = selected_continents
-    data['How many years of professional work experience do you have overall?'] = selected_experience_overall
-    data['How many years of professional work experience do you have in your field?'] = selected_experience_field
-    data['What is your highest level of education completed?'] = selected_degree
-    data['What is your gender?'] = selected_gender
+    data['New Age Range'] = [selected_age_range]
+    data['What industry do you work in?'] = [selected_industries]
+    data['Continent'] = [selected_continents]
+    data['How many years of professional work experience do you have overall?'] = [selected_experience_overall]
+    data['How many years of professional work experience do you have in your field?'] = [selected_experience_field]
+    data['What is your highest level of education completed?'] = [selected_degree]
+    data['What is your gender?'] = [selected_gender]
 
-    # Perform one-hot encoding
-    # encoded_data = {}
-    # for key, value in data.items():
-    #     if isinstance(value, list):
-    #         for item in value:
-    #             encoded_data[f'{key}__{item}'] = int(item in value)
-    #     else:
-    #         encoded_data[key] = value
-
-    features = pd.DataFrame(encoded_data, index=[0])
+    features = pd.DataFrame(data)
     return features
 
 df = user_input_features()
-
-
 
 encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
 
@@ -197,6 +186,38 @@ for col in encode:
     dummy = pd.get_dummies(df[col], prefix=col)
     df = pd.concat([df, dummy], axis=1)
     del df[col]
+    
+#     data = {}
+#     data['New Age Range'] = selected_age_range
+#     data['What industry do you work in?'] = selected_industries
+#     data['Continent'] = selected_continents
+#     data['How many years of professional work experience do you have overall?'] = selected_experience_overall
+#     data['How many years of professional work experience do you have in your field?'] = selected_experience_field
+#     data['What is your highest level of education completed?'] = selected_degree
+#     data['What is your gender?'] = selected_gender
+
+#     # Perform one-hot encoding
+#     # encoded_data = {}
+#     # for key, value in data.items():
+#     #     if isinstance(value, list):
+#     #         for item in value:
+#     #             encoded_data[f'{key}__{item}'] = int(item in value)
+#     #     else:
+#     #         encoded_data[key] = value
+
+#     features = pd.DataFrame(encoded_data, index=[0])
+#     return features
+
+# df = user_input_features()
+
+
+
+# encode = ['New Age Range', 'What industry do you work in?', 'Continent', 'How many years of professional work experience do you have overall?', 'How many years of professional work experience do you have in your field?', 'What is your highest level of education completed?', 'What is your gender?']
+
+# for col in encode:
+#     dummy = pd.get_dummies(df[col], prefix=col)
+#     df = pd.concat([df, dummy], axis=1)
+#     del df[col]
 
 df = df.iloc[:1]
 
