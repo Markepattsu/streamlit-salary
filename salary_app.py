@@ -176,13 +176,13 @@ def user_input_features():
     # data['What is your gender?'] = [selected_gender]
 
     data = {
-        'New Age Range': [selected_age_range],
-        'What industry do you work in?': [selected_industries],
-        'Continent': [selected_continents],
-        'How many years of professional work experience do you have overall?': [selected_experience_overall],
-        'How many years of professional work experience do you have in your field?': [selected_experience_field],
-        'What is your highest level of education completed?': [selected_degree],
-        'What is your gender?': [selected_gender]
+        'New_Age_Range_': [selected_age_range],
+        'What_industry_do_you_work_in__': [selected_industries],
+        'Continent_': [selected_continents],
+        'How_many_years_of_professional_work_experience_do_you_have_overall__': [selected_experience_overall],
+        'How_many_years_of_professional_work_experience_do_you_have_in_your_field__': [selected_experience_field],
+        'What_is_your_highest_level_of_education_completed__': [selected_degree],
+        'What_is_your_gender__': [selected_gender]
     }
     df = pd.DataFrame(data)
     return df
