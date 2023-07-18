@@ -7,7 +7,6 @@ from sklearn.datasets import make_regression
 import os
 
 
-
 st.write("""
 # Salary Prediction app
 
@@ -172,8 +171,9 @@ st.subheader('User Input Features')
 # else:
 #     st.error("Model file not found. Please verify the file path.")
 
-load_clf = pickle.load(open('model_lgbm.pkl', 'rb'))
-
+model_path = "model_lgbm.pkl','rb'
+with open(model_path, 'rb') as file:
+    model = pickle.load(file)
 
 
 #model = joblib.load('C:/Users/tanak/OneDrive/Desktop/Desk/Work/Yr 2/Sem 1/MLDP/Proj/model_lgbm.pkl')
