@@ -171,13 +171,14 @@ st.subheader('User Input Features')
 # else:
 #     st.error("Model file not found. Please verify the file path.")
 
-model_path = 'model_lgbm.pkl'
-with open(model_path, 'rb') as file:
-    model = pickle.load(file)
+# model_path = 'model_lgbm.pkl'
+# with open(model_path, 'rb') as file:
+#     model = pickle.load(file)
 
 
 #model = joblib.load('C:/Users/tanak/OneDrive/Desktop/Desk/Work/Yr 2/Sem 1/MLDP/Proj/model_lgbm.pkl')
 
+model = pickle.load(open('model_lgbm.pkl','rb'))
 
 if os.path.exists(model_path):
     # Load the model
