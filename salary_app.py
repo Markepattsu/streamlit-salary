@@ -138,13 +138,23 @@ def user_input_features():
 df = user_input_features()
 
 
-encode = ['Age Range', 'Industries','Continents','Overall Professional Work Experience','Professional Work Experience in the Field','Highest Level of Education Completed','Gender']
+# encode = ['Age Range', 'Industries','Continents','Overall Professional Work Experience','Professional Work Experience in the Field','Highest Level of Education Completed','Gender']
+
+# for col in encode:
+#     dummy = pd.get_dummies(df[col], prefix=col)
+#     df = pd.concat([df,dummy], axis=1)
+#     del df[col]
+
+
+encode = ['Age Range', 'Industries', 'Continents', 'Overall Professional Work Experience', 'Professional Work Experience in the Field', 'Highest Level of Education Completed', 'Gender']
 
 for col in encode:
-    dummy = pd.get_dummies(df[col], prefix=col)
-    df = pd.concat([df,dummy], axis=1)
-    del df[col]
-
+    if col in df.columns:
+        dummy = pd.get_dummies(df[col], prefix=col)
+        df = pd.concat([df, dummy], axis=1)
+        del df[col]
+    else:
+        print(f"Column '{col}' not found in the DataFrame. Skipping...")
 # select only the first row (the user input data)
 
 df = df.iloc[:1]
