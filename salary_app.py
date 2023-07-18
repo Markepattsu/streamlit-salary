@@ -240,7 +240,7 @@ st.subheader('User Input Features')
 
 model = pickle.load(open('model_lgbm.pkl','rb'))
 
-predictions = model.predict(encoded_df)
+predictions = model.predict(df)
 # Display the predictions
 st.subheader('Predicted')
 st.write(predictions)
