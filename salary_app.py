@@ -164,17 +164,13 @@ df = df.iloc[:1]
 
 st.subheader('User Input Features')
 
-file_path = os.path.join('Proj', 'model_lgbm.pkl')
+file_path = os.path.join("C:", "Users", "tanak", "OneDrive", "Desktop", "Desk", "Work", "Yr 2", "Sem 1", "MLDP", "Proj", "model_lgbm.pkl")
 
-model = joblib.load(file_path)
-
-if os.path.exists(model_path):
-    # Load the model
-    model = joblib.load(model_path)
-    # Rest of your Streamlit app code
+if os.path.exists(file_path):
+    model = joblib.load(file_path)
+    st.success("Model loaded successfully!")
 else:
-    st.error('Model file not found. Please verify the file path.')
-
+    st.error("Model file not found. Please verify the file path.")
 
 
 
