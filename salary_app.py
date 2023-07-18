@@ -4,6 +4,8 @@ import numpy as np
 import pickle
 import joblib
 from sklearn.datasets import make_regression
+import lightgbm as lgb
+
 import os
 
 
