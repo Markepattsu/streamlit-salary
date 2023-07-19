@@ -256,14 +256,12 @@ lgbm = lgb.train(params, train_data, num_boost_round=100)
 
 # Displays the user input features
 
-st.subheader('User Input Features')
-
 # model = pickle.load(open('model_lgbm.pkl','rb'))
 # predictions = model.predict(df)
 
 predictions = lgbm.predict(df)
 # Display the predictions
-st.subheader('Predicted')
+st.subheader('Predicted Annual Salary in USD')
 st.write(predictions)
 
 
