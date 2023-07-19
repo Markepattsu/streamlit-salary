@@ -236,22 +236,6 @@ train_data = lgb.Dataset(X_train, label=y_train, feature_name=sanitized_feature_
 # Train the LightGBM model
 lgbm = lgb.train(params, train_data, num_boost_round=100)
 
-# # Make predictions on the test data
-# y_pred = lgbm.predict(X_test)
-
-# # Calculate the mean squared error
-# mse = mean_squared_error(y_test, y_pred)
-# print("Mean Squared Error:", mse)
-
-# r2 = r2_score(y_test, y_pred)
-
-# # Calculate the adjusted R-squared
-# n = X_test.shape[0]  # Number of samples
-# p = X_test.shape[1]  # Number of predictors
-# adjusted_r2 = 1 - (1 - r2) * (n - 1) / (n - p - 1)
-
-# print("Adjusted R-squared:", adjusted_r2)
-
 
 
 # Displays the user input features
