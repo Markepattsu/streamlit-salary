@@ -3,9 +3,11 @@ import pandas as pd
 import numpy as np
 import pickle
 import joblib
-from sklearn.datasets import make_regression
 import lightgbm as lgb
-
+import re
+from sklearn.model_selection import train_test_split
+from sklearn import ensemble
+import sklearn.externals
 import os
 
 
@@ -139,13 +141,23 @@ df = user_input_features()
 
 df = df.iloc[:1]
 
+feature_df = pd.read_csv('cleared.csv')
+
+exclude_columns = ['Salary', 'Please indicate the currency', 'What is your race? (Choose all that apply.)','What country do you work in?','How old are you?']  # Add the column names to be excluded
+
+X = features_df.drop(exclude_columns, axis=1)
+
+y = features_df['Salary']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2200187)
+
 
 
 # Displays the user input features
 
 st.subheader('User Input Features')
 
-model = pickle.load(open('model_lgbm.pkl','rb'))
+# model = pickle.load(open('model_lgbm.pkl','rb'))
 
 predictions = model.predict(df)
 # Display the predictions
