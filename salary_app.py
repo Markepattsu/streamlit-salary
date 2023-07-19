@@ -11,9 +11,6 @@ import sklearn.externals
 import os
 
 
-st.image('https://free4kwallpapers.com/uploads/originals/2015/07/15/working-hard.jpg', width=1080)
-
-
 st.write("""
 # Salary Prediction app
 
