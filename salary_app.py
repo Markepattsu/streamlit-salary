@@ -21,7 +21,7 @@ st.sidebar.header('User Input Features')
 
 def user_input_features():
 
-    # data = {}
+    data = {}
     
     age_ranges = ['Under 18', '18-34', '35-54', '55 or over']
     selected_age_range = st.sidebar.selectbox('Age Range', age_ranges)
@@ -131,21 +131,9 @@ def user_input_features():
     for gender in genders:
         data[f'What_is_your_gender__{gender}'] = int(gender == selected_gender)
 
-    # data[f'New_Age_Range_{age_range}'] = age_range == selected_age_range
-    # data[f'What_industry_do_you_work_in__{industry}'] = industry == selected_industries
-    # data[f'Continent_{continent}'] = continent == selected_continents
-    # data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp == selected_experience_overall
-    # data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp == selected_experience_field
-    # data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree == selected_degree
-    # data[f'What_is_your_gender__{gender}'] = gender == selected_gender
-        
     features = pd.DataFrame(data, index=[0])
     return features
 
-# def one_hot_encode(df):
-#     # Use pandas get_dummies to one-hot encode the data
-#     encoded_df = pd.get_dummies(df)
-#     return encoded_df
 
 df = user_input_features()
 
