@@ -54,7 +54,7 @@ def user_input_features():
         'Transport or Logistics',
         'Utilities & Telecommunications',
     ]       
-    selected_industries = st.sidebar.selectbox('Industries', industries)
+    selected_industry = st.sidebar.selectbox('Industries', industries)
     
     continents = [
         'Africa',
@@ -64,7 +64,7 @@ def user_input_features():
         'Oceania',
         'South America',
     ]
-    selected_continents = st.sidebar.selectbox('Continents', continents)
+    selected_continent = st.sidebar.selectbox('Continents', continents)
     
     experience_overall = [
         '1 year or less',
