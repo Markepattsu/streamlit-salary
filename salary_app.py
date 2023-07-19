@@ -10,7 +10,7 @@ from sklearn import ensemble
 import sklearn.externals
 import os
 
-st.image('https://free4kwallpapers.com/uploads/originals/2015/07/15/working-hard.jpg', width=700)
+st.image('https://www.zdnet.com/a/img/resize/77fc992324bb5da825fa58eca0be48a2e8d3a146/2020/07/21/8f8c5e3b-1eb7-4100-b4d8-0059c89cd8e6/istock-1213497796-2.jpg')
 
 st.write("""
 # Salary Prediction app
