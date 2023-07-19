@@ -141,100 +141,100 @@ df = user_input_features()
 
 df = df.iloc[:1]
 
-# feature_df = pd.read_csv('cleared.csv')
+feature_df = pd.read_csv('cleared.csv')
 
-# exclude_columns = ['Salary', 'Please indicate the currency', 'What is your race? (Choose all that apply.)','What country do you work in?','How old are you?']  # Add the column names to be excluded
+exclude_columns = ['Salary', 'Please indicate the currency', 'What is your race? (Choose all that apply.)','What country do you work in?','How old are you?']  # Add the column names to be excluded
 
-# X = feature_df.drop(exclude_columns, axis=1)
+X = feature_df.drop(exclude_columns, axis=1)
 
-# y = feature_df['Salary']
+y = feature_df['Salary']
 
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2200187)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2200187)
 
-# feature_names = [
-#     'New Age Range_18-34',
-#     'New Age Range_35-54',
-#     'New Age Range_55 or over',
-#     'New Age Range_under 18',
-#     'What industry do you work in?_Accounting, Banking & Finance',
-#     'What industry do you work in?_Agriculture or Forestry',
-#     'What industry do you work in?_Art & Design',
-#     'What industry do you work in?_Business or Consulting',
-#     'What industry do you work in?_Computing or Tech',
-#     'What industry do you work in?_Education (Higher Education)',
-#     'What industry do you work in?_Education (Primary/Secondary)',
-#     'What industry do you work in?_Engineering or Manufacturing',
-#     'What industry do you work in?_Entertainment',
-#     'What industry do you work in?_Government and Public Administration',
-#     'What industry do you work in?_Health care',
-#     'What industry do you work in?_Hospitality & Events',
-#     'What industry do you work in?_Insurance',
-#     'What industry do you work in?_Law',
-#     'What industry do you work in?_Law Enforcement & Security',
-#     'What industry do you work in?_Leisure, Sport & Tourism',
-#     'What industry do you work in?_Marketing, Advertising & PR',
-#     'What industry do you work in?_Media & Digital',
-#     'What industry do you work in?_Nonprofits',
-#     'What industry do you work in?_Property or Construction',
-#     'What industry do you work in?_Recruitment or HR',
-#     'What industry do you work in?_Retail',
-#     'What industry do you work in?_Sales',
-#     'What industry do you work in?_Social Work',
-#     'What industry do you work in?_Transport or Logistics',
-#     'What industry do you work in?_Utilities & Telecommunications',
-#     'Continent_Africa',
-#     'Continent_Asia',
-#     'Continent_Europe',
-#     'Continent_North America',
-#     'Continent_Oceania',
-#     'Continent_South America',
-#     'How many years of professional work experience do you have overall?_1 year or less',
-#     'How many years of professional work experience do you have overall?_11 - 20 years',
-#     'How many years of professional work experience do you have overall?_2 - 4 years',
-#     'How many years of professional work experience do you have overall?_21 - 30 years',
-#     'How many years of professional work experience do you have overall?_31 - 40 years',
-#     'How many years of professional work experience do you have overall?_41 years or more',
-#     'How many years of professional work experience do you have overall?_5-7 years',
-#     'How many years of professional work experience do you have overall?_8 - 10 years',
-#     'How many years of professional work experience do you have in your field?_1 year or less',
-#     'How many years of professional work experience do you have in your field?_11 - 20 years',
-#     'How many years of professional work experience do you have in your field?_2 - 4 years',
-#     'How many years of professional work experience do you have in your field?_21 - 30 years',
-#     'How many years of professional work experience do you have in your field?_31 - 40 years',
-#     'How many years of professional work experience do you have in your field?_41 years or more',
-#     'How many years of professional work experience do you have in your field?_5-7 years',
-#     'How many years of professional work experience do you have in your field?_8 - 10 years',
-#     'What is your highest level of education completed?_College degree',
-#     'What is your highest level of education completed?_High School',
-#     'What is your highest level of education completed?_Master\'s degree',
-#     'What is your highest level of education completed?_PhD',
-#     'What is your highest level of education completed?_Professional degree (MD, JD, etc.)',
-#     'What is your highest level of education completed?_Some college',
-#     'What is your gender?_Man',
-#     'What is your gender?_Non-binary',
-#     'What is your gender?_Other or prefer not to answer',
-#     'What is your gender?_Prefer not to answer',
-#     'What is your gender?_Woman'
-# ]
+feature_names = [
+    'New Age Range_18-34',
+    'New Age Range_35-54',
+    'New Age Range_55 or over',
+    'New Age Range_under 18',
+    'What industry do you work in?_Accounting, Banking & Finance',
+    'What industry do you work in?_Agriculture or Forestry',
+    'What industry do you work in?_Art & Design',
+    'What industry do you work in?_Business or Consulting',
+    'What industry do you work in?_Computing or Tech',
+    'What industry do you work in?_Education (Higher Education)',
+    'What industry do you work in?_Education (Primary/Secondary)',
+    'What industry do you work in?_Engineering or Manufacturing',
+    'What industry do you work in?_Entertainment',
+    'What industry do you work in?_Government and Public Administration',
+    'What industry do you work in?_Health care',
+    'What industry do you work in?_Hospitality & Events',
+    'What industry do you work in?_Insurance',
+    'What industry do you work in?_Law',
+    'What industry do you work in?_Law Enforcement & Security',
+    'What industry do you work in?_Leisure, Sport & Tourism',
+    'What industry do you work in?_Marketing, Advertising & PR',
+    'What industry do you work in?_Media & Digital',
+    'What industry do you work in?_Nonprofits',
+    'What industry do you work in?_Property or Construction',
+    'What industry do you work in?_Recruitment or HR',
+    'What industry do you work in?_Retail',
+    'What industry do you work in?_Sales',
+    'What industry do you work in?_Social Work',
+    'What industry do you work in?_Transport or Logistics',
+    'What industry do you work in?_Utilities & Telecommunications',
+    'Continent_Africa',
+    'Continent_Asia',
+    'Continent_Europe',
+    'Continent_North America',
+    'Continent_Oceania',
+    'Continent_South America',
+    'How many years of professional work experience do you have overall?_1 year or less',
+    'How many years of professional work experience do you have overall?_11 - 20 years',
+    'How many years of professional work experience do you have overall?_2 - 4 years',
+    'How many years of professional work experience do you have overall?_21 - 30 years',
+    'How many years of professional work experience do you have overall?_31 - 40 years',
+    'How many years of professional work experience do you have overall?_41 years or more',
+    'How many years of professional work experience do you have overall?_5-7 years',
+    'How many years of professional work experience do you have overall?_8 - 10 years',
+    'How many years of professional work experience do you have in your field?_1 year or less',
+    'How many years of professional work experience do you have in your field?_11 - 20 years',
+    'How many years of professional work experience do you have in your field?_2 - 4 years',
+    'How many years of professional work experience do you have in your field?_21 - 30 years',
+    'How many years of professional work experience do you have in your field?_31 - 40 years',
+    'How many years of professional work experience do you have in your field?_41 years or more',
+    'How many years of professional work experience do you have in your field?_5-7 years',
+    'How many years of professional work experience do you have in your field?_8 - 10 years',
+    'What is your highest level of education completed?_College degree',
+    'What is your highest level of education completed?_High School',
+    'What is your highest level of education completed?_Master\'s degree',
+    'What is your highest level of education completed?_PhD',
+    'What is your highest level of education completed?_Professional degree (MD, JD, etc.)',
+    'What is your highest level of education completed?_Some college',
+    'What is your gender?_Man',
+    'What is your gender?_Non-binary',
+    'What is your gender?_Other or prefer not to answer',
+    'What is your gender?_Prefer not to answer',
+    'What is your gender?_Woman'
+]
 
-# sanitized_feature_names = [re.sub(r'\W+', '_', feature) for feature in feature_names]
+sanitized_feature_names = [re.sub(r'\W+', '_', feature) for feature in feature_names]
 
-# params = {
-#     'objective': 'regression',
-#     'metric': 'rmse',
-#     'num_leaves': 50,
-#     'learning_rate': 0.1,
-#     'feature_fraction': 0.9,
-#     'bagging_fraction': 0.8,
-#     'bagging_freq': 5,
-#     'verbose': 0
-# }
+params = {
+    'objective': 'regression',
+    'metric': 'rmse',
+    'num_leaves': 50,
+    'learning_rate': 0.1,
+    'feature_fraction': 0.9,
+    'bagging_fraction': 0.8,
+    'bagging_freq': 5,
+    'verbose': 0
+}
 
-# # Create a LightGBM Dataset with sanitized feature names
-# train_data = lgb.Dataset(X_train, label=y_train, feature_name=sanitized_feature_names)
+# Create a LightGBM Dataset with sanitized feature names
+train_data = lgb.Dataset(X_train, label=y_train, feature_name=sanitized_feature_names)
 
-# # Train the LightGBM model
-# lgbm = lgb.train(params, train_data, num_boost_round=100)
+# Train the LightGBM model
+lgbm = lgb.train(params, train_data, num_boost_round=100)
 
 # # Make predictions on the test data
 # y_pred = lgbm.predict(X_test)
@@ -258,10 +258,10 @@ df = df.iloc[:1]
 
 st.subheader('User Input Features')
 
-model = pickle.load(open('model_lgbm.pkl','rb'))
-predictions = model.predict(df)
+# model = pickle.load(open('model_lgbm.pkl','rb'))
+# predictions = model.predict(df)
 
-# predictions = lgbm.predict(df)
+predictions = lgbm.predict(df)
 # Display the predictions
 st.subheader('Predicted')
 st.write(predictions)
