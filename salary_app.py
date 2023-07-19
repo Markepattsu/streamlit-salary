@@ -247,7 +247,9 @@ lgbm = lgb.train(params, train_data, num_boost_round=100)
 predictions = lgbm.predict(df)
 # Display the predictions
 st.subheader('Predicted Annual Salary in USD')
-st.write(predictions)
+st.markdown(predictions, ":money:")
+
+# st.write(predictions)
 
 
 
