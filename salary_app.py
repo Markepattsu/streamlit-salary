@@ -110,34 +110,34 @@ def user_input_features():
     selected_gender = st.sidebar.radio('Gender', genders)
 
                                           
-    # for age_range in age_ranges:
-    #     data[f'New_Age_Range_{age_range}'] = age_range in selected_age_range
+    for age_range in age_ranges:
+        data[f'New_Age_Range_{age_range}'] = int(age_range == selected_age_range)
 
-    # for industry in industries:
-    #     data[f'What_industry_do_you_work_in__{industry}'] = industry in selected_industries
+    for industry in industries:
+        data[f'What_industry_do_you_work_in__{industry}'] = int(industry == selected_industry)
 
-    # for continent in continents:
-    #     data[f'Continent_{continent}'] = continent in selected_continents
+    for continent in continents:
+        data[f'Continent_{continent}'] = int(continent == selected_continent)
 
-    # for exp in experience_overall:
-    #     data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp in selected_experience_overall
+    for exp in experience_overall:
+        data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = int(exp == selected_experience_overall)
     
-    # for exp in experience_field:
-    #     data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp in selected_experience_field
+    for exp in experience_field:
+        data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = int(exp == selected_experience_field)
 
-    # for degree in degrees:
-    #     data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree in selected_degree
+    for degree in degrees:
+        data[f'What_is_your_highest_level_of_education_completed__{degree}'] = int(degree == selected_degree)
 
-    # for gender in genders:
-    #     data[f'What_is_your_gender__{gender}'] = gender in selected_gender
+    for gender in genders:
+        data[f'What_is_your_gender__{gender}'] = int(gender == selected_gender)
 
-    data[f'New_Age_Range_{age_range}'] = age_range == selected_age_range
-    data[f'What_industry_do_you_work_in__{industry}'] = industry == selected_industries
-    data[f'Continent_{continent}'] = continent == selected_continents
-    data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp == selected_experience_overall
-    data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp == selected_experience_field
-    data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree == selected_degree
-    data[f'What_is_your_gender__{gender}'] = gender == selected_gender
+    # data[f'New_Age_Range_{age_range}'] = age_range == selected_age_range
+    # data[f'What_industry_do_you_work_in__{industry}'] = industry == selected_industries
+    # data[f'Continent_{continent}'] = continent == selected_continents
+    # data[f'How_many_years_of_professional_work_experience_do_you_have_overall__{exp}'] = exp == selected_experience_overall
+    # data[f'How_many_years_of_professional_work_experience_do_you_have_in_your_field__{exp}'] = exp == selected_experience_field
+    # data[f'What_is_your_highest_level_of_education_completed__{degree}'] = degree == selected_degree
+    # data[f'What_is_your_gender__{gender}'] = gender == selected_gender
         
     features = pd.DataFrame(data, index=[0])
     return features
