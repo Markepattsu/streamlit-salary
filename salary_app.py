@@ -107,6 +107,7 @@ def user_input_features():
         'Man',
         'Non-binary',
         'Other or prefer not to answer',
+        'Prefer not to answer',
         'Woman',
     ]
     selected_gender = st.sidebar.radio('Gender', genders)
